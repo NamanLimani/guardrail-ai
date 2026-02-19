@@ -464,18 +464,21 @@ async def chat_with_documents(
 @app.post("/transcribe/")
 async def transcribe_audio(file: UploadFile = File(...)):
     """
-    Receives an audio blob, saves it temporarily, and returns the text.
+    Receives an audio blob, saves it temporarily as a .wav file, and returns the text.
     """
-    # 1. Save the temp file
-    temp_filename = f"temp_{file.filename}"
-    with open(temp_filename, "wb") as buffer:
-        buffer.write(await file.read())
+    # 1. Force the extension to .wav so Groq accepts it
+    temp_filename = f"temp_{uuid.uuid4()}.wav"
+    
+    try:
+        # 2. Save the file
+        with open(temp_filename, "wb") as buffer:
+            buffer.write(await file.read())
 
-    # 2. Send to Groq
-    text = chat_engine.transcribe_audio(temp_filename)
-
-    # 3. Cleanup (Delete the temp file)
-    if os.path.exists(temp_filename):
-        os.remove(temp_filename)
-
-    return {"text": text}
+        # 3. Send to Groq
+        text = chat_engine.transcribe_audio(temp_filename)
+        return {"text": text}
+        
+    finally:
+        # 4. Cleanup (Always delete the temp file, even if it crashes!)
+        if os.path.exists(temp_filename):
+            os.remove(temp_filename)

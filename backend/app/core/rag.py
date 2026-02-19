@@ -26,39 +26,33 @@ import requests
 
 class EmbeddingEngine:
     def __init__(self):
-        # We grab the token from the Environment (Render/Local)
         self.hf_token = os.getenv("HF_TOKEN")
-        # The specific Hugging Face URL for our chosen embedding model
-        self.api_url = "https://router.huggingface.co/hf-inference/models/sentence-transformers/all-MiniLM-L6-v2"
+        # UPDATED URL: Using the explicit feature-extraction pipeline
+        self.api_url = "https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2"
         self.headers = {"Authorization": f"Bearer {self.hf_token}"}
-        print("--- RAG: Configured for Hugging Face Cloud Inference ---")
+        print("--- RAG: Configured for Hugging Face Feature Extraction ---")
 
     def generate_embedding(self, text: str) -> list[float]:
-        """
-        Sends text to Hugging Face and returns the 384-dimensional vector.
-        """
         if not self.hf_token:
-            print("WARNING: HF_TOKEN is missing! Vector search will fail.")
             return [0.0] * 384
 
         try:
-            response = requests.post(
-                self.api_url, 
-                headers=self.headers, 
-                json={"inputs": text},
-                timeout=10 # 10 second timeout so we don't hang forever
-            )
+            # We add "wait_for_model" to handle the case where the model is "sleeping"
+            payload = {"inputs": text, "options": {"wait_for_model": True}}
+            response = requests.post(self.api_url, headers=self.headers, json=payload, timeout=20)
             
             if response.status_code == 200:
-                # The API returns the exact array of floats we need
-                return response.json()
+                result = response.json()
+                # Feature extraction sometimes returns a nested list [[...]] 
+                # We need to flatten it to [...]
+                if isinstance(result, list) and len(result) > 0 and isinstance(result[0], list):
+                    return result[0]
+                return result
             else:
                 print(f"RAG API Error ({response.status_code}): {response.text}")
                 return [0.0] * 384
-                
         except Exception as e:
             print(f"RAG Request Failed: {e}")
             return [0.0] * 384
 
-# Create a singleton instance
 embedding_engine = EmbeddingEngine()

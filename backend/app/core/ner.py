@@ -79,7 +79,6 @@ class NERRedactor:
         spans_to_redact = []
         if self.hf_token:
             try:
-                # 'aggregation_strategy' is key to getting clean 'PER'/'LOC' labels
                 payload = {
                     "inputs": safe_text, 
                     "parameters": {"aggregation_strategy": "simple"}
@@ -94,7 +93,6 @@ class NERRedactor:
                 if response.status_code == 200:
                     ner_results = response.json()
                     for entity in ner_results:
-                        # Handle both 'entity_group' and 'entity' response styles
                         label = entity.get('entity_group', entity.get('entity', ''))
                         label = label.replace('B-', '').replace('I-', '')
                         
@@ -106,7 +104,6 @@ class NERRedactor:
             except Exception as e:
                 print(f"NER Request Failed: {e}")
 
-        # Sort spans backwards
         spans_to_redact.sort(key=lambda x: x[0], reverse=True)
         
         redacted_text = list(safe_text)
@@ -115,7 +112,7 @@ class NERRedactor:
         
         final_text = "".join(redacted_text)
 
-        # Local REGEX Pass
+        # Regex Fallbacks
         email_pattern = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
         ssn_pattern = r'\b\d{3}-\d{2}-\d{4}\b'
         cc_pattern = r'\b(?:\d[ -]*?){13,16}\b'

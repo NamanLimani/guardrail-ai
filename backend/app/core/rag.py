@@ -28,16 +28,16 @@ import time
 class EmbeddingEngine:
     def __init__(self):
         self.hf_token = os.getenv("HF_TOKEN")
-        # Use the specific feature-extraction task URL to get vectors
-        self.api_url = "https://router.huggingface.co/hf-inference/models/sentence-transformers/all-MiniLM-L6-v2"
+        # THE FIX: Explicitly request 'feature-extraction' on the new router
+        self.api_url = "https://router.huggingface.co/hf-inference/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2"
         self.headers = {"Authorization": f"Bearer {self.hf_token}"}
         print("--- RAG: Configured for Hugging Face Cloud Inference ---")
 
     def generate_embedding(self, text: str) -> list[float]:
         if not self.hf_token:
+            print("WARNING: HF_TOKEN is missing! Vector search will fail.")
             return [0.0] * 384
 
-        # The new router for this specific model expects raw text in 'inputs'
         payload = {"inputs": text}
 
         try:
@@ -48,7 +48,6 @@ class EmbeddingEngine:
                 timeout=15
             )
             
-            # If the model is still "loading" on Hugging Face's side
             if response.status_code == 503:
                 print("RAG: Model is loading, waiting 5s...")
                 time.sleep(5)
@@ -56,7 +55,9 @@ class EmbeddingEngine:
 
             if response.status_code == 200:
                 result = response.json()
-                # Feature extraction returns a list of floats
+                # Safety Net: Sometimes the API wraps the vectors in an extra list like [[0.1, 0.2]]
+                if isinstance(result, list) and isinstance(result[0], list):
+                     return result[0] 
                 return result
             else:
                 print(f"RAG API Error ({response.status_code}): {response.text}")

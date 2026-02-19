@@ -46,19 +46,7 @@ class GoogleAuthRequest(BaseModel):
     token: str
 
 
-app = FastAPI()
 
-# Get allowed origins from Env (Default to localhost for dev)
-origins_str = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000")
-origins = origins_str.split(",")
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins, # Uses the variable now
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 # This tells FastAPI: "The client should send the token in the Header as 'Bearer <token>'"
 # The tokenUrl="token" tells Swagger UI where to go to get the token.
@@ -162,7 +150,20 @@ async def lifespan(app: FastAPI):
     yield
     print("Shutdown: Closing connections...")
 
+# 1. Initialize the App ONCE here
 app = FastAPI(title="GuardRail AI API", version="0.1.0", lifespan=lifespan)
+
+# 2. Setup CORS securely
+origins_str = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000,https://guardrail-ai.vercel.app")
+origins = origins_str.split(",")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins, 
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 

@@ -339,6 +339,31 @@ async def get_document(doc_id: uuid.UUID, session: AsyncSession = Depends(get_se
     doc = await session.get(Document, doc_id)
     return doc
 
+@app.delete("/documents/{doc_id}")
+async def delete_document(
+    doc_id: uuid.UUID,
+    current_user: User = Depends(get_current_user),
+    session: AsyncSession = Depends(get_session)
+):
+    """
+    Deletes a document from the database AND the local uploads folder.
+    """
+    # 1. Find the document
+    doc = await session.get(Document, doc_id)
+    
+    # 2. Ensure it belongs to the logged-in user
+    if not doc or doc.user_id != current_user.id:
+        raise HTTPException(status_code=404, detail="Document not found")
+    
+    # 3. Delete the physical file from the server
+    if os.path.exists(doc.file_path):
+        os.remove(doc.file_path)
+        
+    # 4. Delete the database record
+    await session.delete(doc)
+    await session.commit()
+    
+    return {"message": f"Document {doc.filename} successfully deleted."}
 
 # def cosine_similarity(vec1, vec2):
 #     """

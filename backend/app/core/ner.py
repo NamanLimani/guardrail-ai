@@ -63,46 +63,50 @@
 import os
 import requests
 import re
+import time
 
 class NERRedactor:
     def __init__(self):
         self.hf_token = os.getenv("HF_TOKEN")
-        # The specific Hugging Face URL for our chosen NER model
-        # self.api_url = "https://router.huggingface.co/hf-inference/models/dslim/bert-base-NER"
-        self.api_url = "https://api-inference.huggingface.co/models/dslim/bert-base-NER"
+        self.api_url = "https://router.huggingface.co/hf-inference/models/dslim/bert-base-NER"
         self.headers = {"Authorization": f"Bearer {self.hf_token}"}
         print("--- NER: Configured for Hugging Face Cloud Inference ---")
 
     def redact(self, text: str):
         stats = {"PER": 0, "ORG": 0, "LOC": 0, "SSN": 0, "CREDIT_CARD": 0, "EMAIL": 0}
-        
-        # We need to cap text length because the API has limits per request (~512 words)
-        # For a production app we would split it into chunks, but this works for our portfolio.
         safe_text = text[:2000] 
 
-        # A. DEEP LEARNING PASS (Via Cloud API)
         spans_to_redact = []
         if self.hf_token:
             try:
-                # We ask the API to "aggregate" sub-words automatically
-                payload = {"inputs": safe_text, "parameters": {"aggregation_strategy": "simple"}}
-                response = requests.post(self.api_url, headers=self.headers, json=payload, timeout=15)
+                # 'aggregation_strategy' is key to getting clean 'PER'/'LOC' labels
+                payload = {
+                    "inputs": safe_text, 
+                    "parameters": {"aggregation_strategy": "simple"}
+                }
+                response = requests.post(self.api_url, headers=self.headers, json=payload, timeout=20)
                 
+                if response.status_code == 503:
+                    print("NER: Model loading, waiting 5s...")
+                    time.sleep(5)
+                    return self.redact(text)
+
                 if response.status_code == 200:
                     ner_results = response.json()
                     for entity in ner_results:
-                        # API returns 'entity_group' (e.g., 'PER', 'ORG')
-                        ent_label = entity.get('entity_group', entity.get('entity', '')).replace('B-', '').replace('I-', '')
+                        # Handle both 'entity_group' and 'entity' response styles
+                        label = entity.get('entity_group', entity.get('entity', ''))
+                        label = label.replace('B-', '').replace('I-', '')
                         
-                        if ent_label in ['PER', 'ORG', 'LOC']:
-                            spans_to_redact.append((entity['start'], entity['end'], ent_label))
-                            stats[ent_label] += 1
+                        if label in ['PER', 'ORG', 'LOC']:
+                            spans_to_redact.append((entity['start'], entity['end'], label))
+                            stats[label] += 1
                 else:
                     print(f"NER API Error: {response.status_code} - {response.text}")
             except Exception as e:
                 print(f"NER Request Failed: {e}")
 
-        # Sort spans backwards so replacing text doesn't mess up the index positions!
+        # Sort spans backwards
         spans_to_redact.sort(key=lambda x: x[0], reverse=True)
         
         redacted_text = list(safe_text)
@@ -111,23 +115,20 @@ class NERRedactor:
         
         final_text = "".join(redacted_text)
 
-        # B. REGEX PASS (Local)
-        # Email
-        email_matches = re.findall(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', final_text)
-        stats["EMAIL"] += len(email_matches)
-        final_text = re.sub(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', "<EMAIL>", final_text)
+        # Local REGEX Pass
+        email_pattern = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
+        ssn_pattern = r'\b\d{3}-\d{2}-\d{4}\b'
+        cc_pattern = r'\b(?:\d[ -]*?){13,16}\b'
+
+        stats["EMAIL"] += len(re.findall(email_pattern, final_text))
+        final_text = re.sub(email_pattern, "<EMAIL>", final_text)
         
-        # SSN
-        ssn_matches = re.findall(r'\b\d{3}-\d{2}-\d{4}\b', final_text)
-        stats["SSN"] += len(ssn_matches)
-        final_text = re.sub(r'\b\d{3}-\d{2}-\d{4}\b', "<SSN>", final_text)
+        stats["SSN"] += len(re.findall(ssn_pattern, final_text))
+        final_text = re.sub(ssn_pattern, "<SSN>", final_text)
         
-        # Credit Card
-        cc_matches = re.findall(r'\b(?:\d[ -]*?){13,16}\b', final_text)
-        stats["CREDIT_CARD"] += len(cc_matches)
-        final_text = re.sub(r'\b(?:\d[ -]*?){13,16}\b', "<CREDIT_CARD>", final_text)
+        stats["CREDIT_CARD"] += len(re.findall(cc_pattern, final_text))
+        final_text = re.sub(cc_pattern, "<CREDIT_CARD>", final_text)
         
         return final_text, stats
 
-# Create a singleton instance
 ner_redactor = NERRedactor()

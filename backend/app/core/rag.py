@@ -23,34 +23,45 @@
 
 import os
 import requests
+import time
 
 class EmbeddingEngine:
     def __init__(self):
         self.hf_token = os.getenv("HF_TOKEN")
-        # UPDATED URL: Using the explicit feature-extraction pipeline
-        self.api_url = "https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2"
+        # Use the specific feature-extraction task URL to get vectors
+        self.api_url = "https://router.huggingface.co/hf-inference/models/sentence-transformers/all-MiniLM-L6-v2"
         self.headers = {"Authorization": f"Bearer {self.hf_token}"}
-        print("--- RAG: Configured for Hugging Face Feature Extraction ---")
+        print("--- RAG: Configured for Hugging Face Cloud Inference ---")
 
     def generate_embedding(self, text: str) -> list[float]:
         if not self.hf_token:
             return [0.0] * 384
 
+        # The new router for this specific model expects raw text in 'inputs'
+        payload = {"inputs": text}
+
         try:
-            # We add "wait_for_model" to handle the case where the model is "sleeping"
-            payload = {"inputs": text, "options": {"wait_for_model": True}}
-            response = requests.post(self.api_url, headers=self.headers, json=payload, timeout=20)
+            response = requests.post(
+                self.api_url, 
+                headers=self.headers, 
+                json=payload,
+                timeout=15
+            )
             
+            # If the model is still "loading" on Hugging Face's side
+            if response.status_code == 503:
+                print("RAG: Model is loading, waiting 5s...")
+                time.sleep(5)
+                return self.generate_embedding(text)
+
             if response.status_code == 200:
                 result = response.json()
-                # Feature extraction sometimes returns a nested list [[...]] 
-                # We need to flatten it to [...]
-                if isinstance(result, list) and len(result) > 0 and isinstance(result[0], list):
-                    return result[0]
+                # Feature extraction returns a list of floats
                 return result
             else:
                 print(f"RAG API Error ({response.status_code}): {response.text}")
                 return [0.0] * 384
+                
         except Exception as e:
             print(f"RAG Request Failed: {e}")
             return [0.0] * 384

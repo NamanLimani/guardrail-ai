@@ -93,38 +93,6 @@ async def get_current_user(
         
     return user
 
-# async def process_document(doc_id: uuid.UUID, file_path: str, session_factory):
-#     print(f"Processing document {doc_id}...")
-    
-#     # 1. Extract
-#     raw_text = extract_text_from_pdf(file_path)
-    
-#     status = "failed"
-#     clean_text = ""
-#     doc_vector = None
-    
-#     if raw_text:
-#         # 2. Redact
-#         clean_text = ner_redactor.redact(raw_text)
-#         status = "completed"
-        
-#         # 3. Vectorize (The New Step)
-#         try:
-#             # Vectorize the FIRST 1000 characters (Context Window)
-#             doc_vector = embedding_engine.generate_embedding(clean_text[:1000])
-#         except Exception as e:
-#             print(f"--- RAG ERROR: {e} ---")
-    
-#     # 4. Update DB
-#     async with session_factory() as session:
-#         doc = await session.get(Document, doc_id)
-#         if doc:
-#             doc.text_content = clean_text
-#             doc.status = status
-#             doc.vector = doc_vector
-#             session.add(doc)
-#             await session.commit()
-#             print(f"Document {doc_id} processed, redacted & vectorized.")
 
 async def process_document(doc_id: uuid.UUID, file_path: str, session_factory):
     print(f"Processing document {doc_id}...")
@@ -196,13 +164,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="GuardRail AI API", version="0.1.0", lifespan=lifespan)
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:3000"], # The URL of your Frontend
-    allow_credentials=True,
-    allow_methods=["*"], # Allow all types of requests (GET, POST, etc.)
-    allow_headers=["*"], # Allow all headers (Authentication, etc.)
-)
+
 
 class ChatRequest(BaseModel):
     query: str

@@ -1,3 +1,30 @@
+# fastapi
+# uvicorn[standard]
+# sqlalchemy
+# asyncpg
+# sqlmodel
+# python-multipart
+# pyjwt
+# passlib[argon2]
+# bcrypt==4.0.1
+# pdfplumber
+# python-docx
+# sentence-transformers
+# numpy
+# psycopg2-binary
+# requests
+# pdf2image
+# pytesseract
+# groq
+# Faker
+# torch --index-url https://download.pytorch.org/whl/cpu
+# transformers
+# python-jose[cryptography]  # For decoding JWTs
+# httpx                      # For talking to Google API
+# google-auth
+# requests
+
+
 fastapi
 uvicorn[standard]
 sqlalchemy
@@ -9,17 +36,12 @@ passlib[argon2]
 bcrypt==4.0.1
 pdfplumber
 python-docx
-sentence-transformers
-numpy
 psycopg2-binary
 requests
 pdf2image
 pytesseract
 groq
 Faker
-torch --index-url https://download.pytorch.org/whl/cpu
-transformers
-python-jose[cryptography]  # For decoding JWTs
-httpx                      # For talking to Google API
+python-jose[cryptography]
+httpx
 google-auth
-requests

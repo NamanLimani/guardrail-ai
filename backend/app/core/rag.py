@@ -28,17 +28,21 @@ import time
 class EmbeddingEngine:
     def __init__(self):
         self.hf_token = os.getenv("HF_TOKEN")
-        # THE FIX: Explicitly request 'feature-extraction' on the new router
-        self.api_url = "https://router.huggingface.co/hf-inference/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2"
+        # THE FIX: Use the brand new, universal OpenAI-compatible endpoint!
+        self.api_url = "https://router.huggingface.co/hf-inference/v1/embeddings"
         self.headers = {"Authorization": f"Bearer {self.hf_token}"}
-        print("--- RAG: Configured for Hugging Face Cloud Inference ---")
+        print("--- RAG: Configured for HF v1 Embeddings API ---")
 
     def generate_embedding(self, text: str) -> list[float]:
         if not self.hf_token:
             print("WARNING: HF_TOKEN is missing! Vector search will fail.")
             return [0.0] * 384
 
-        payload = {"inputs": text}
+        # The new standard format specifies the model in the payload
+        payload = {
+            "model": "sentence-transformers/all-MiniLM-L6-v2",
+            "input": text
+        }
 
         try:
             response = requests.post(
@@ -55,10 +59,8 @@ class EmbeddingEngine:
 
             if response.status_code == 200:
                 result = response.json()
-                # Safety Net: Sometimes the API wraps the vectors in an extra list like [[0.1, 0.2]]
-                if isinstance(result, list) and isinstance(result[0], list):
-                     return result[0] 
-                return result
+                # The API returns OpenAI-formatted data, we just grab the array!
+                return result["data"][0]["embedding"]
             else:
                 print(f"RAG API Error ({response.status_code}): {response.text}")
                 return [0.0] * 384

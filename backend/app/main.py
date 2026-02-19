@@ -340,11 +340,24 @@ async def get_document(doc_id: uuid.UUID, session: AsyncSession = Depends(get_se
     return doc
 
 
+# def cosine_similarity(vec1, vec2):
+#     """
+#     Returns a score between 0 (different) and 1 (identical).
+#     """
+#     return np.dot(vec1, vec2) / (np.linalg.norm(vec1) * np.linalg.norm(vec2))
+
 def cosine_similarity(vec1, vec2):
     """
     Returns a score between 0 (different) and 1 (identical).
     """
-    return np.dot(vec1, vec2) / (np.linalg.norm(vec1) * np.linalg.norm(vec2))
+    norm1 = np.linalg.norm(vec1)
+    norm2 = np.linalg.norm(vec2)
+    
+    # Safety Net: Prevent Division by Zero if the API ever fails!
+    if norm1 == 0 or norm2 == 0:
+        return 0.0
+        
+    return float(np.dot(vec1, vec2) / (norm1 * norm2))
 
 @app.post("/search/")
 async def search_documents(

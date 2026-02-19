@@ -29,7 +29,7 @@ class EmbeddingEngine:
         # We grab the token from the Environment (Render/Local)
         self.hf_token = os.getenv("HF_TOKEN")
         # The specific Hugging Face URL for our chosen embedding model
-        self.api_url = "https://api-inference.huggingface.co/pipeline/feature-extraction/sentence-transformers/all-MiniLM-L6-v2"
+        self.api_url = "https://router.huggingface.co/hf-inference/models/sentence-transformers/all-MiniLM-L6-v2"
         self.headers = {"Authorization": f"Bearer {self.hf_token}"}
         print("--- RAG: Configured for Hugging Face Cloud Inference ---")
 

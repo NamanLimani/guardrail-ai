@@ -68,7 +68,7 @@ class NERRedactor:
     def __init__(self):
         self.hf_token = os.getenv("HF_TOKEN")
         # The specific Hugging Face URL for our chosen NER model
-        self.api_url = "https://api-inference.huggingface.co/models/dslim/bert-base-NER"
+        self.api_url = "https://router.huggingface.co/hf-inference/models/dslim/bert-base-NER"
         self.headers = {"Authorization": f"Bearer {self.hf_token}"}
         print("--- NER: Configured for Hugging Face Cloud Inference ---")
 

@@ -1,0 +1,19 @@
+
+    RESUME
+    --------------------------------
+    Name: Isaiah Smith
+    Email: aperez@example.org
+    Phone: +1-986-432-0622x0433
+    Address: 4688 Wong Cape Suite 554, Pamelachester, NE 63283
+    
+    EXPERIENCE
+    --------------------------------
+    Scientist, water quality at Scott, Bishop and Horne
+    Dates: 2023-10-01 - Present
+    
+    EDUCATION
+    --------------------------------
+    University: Graves, Hill and Bradshaw University
+    Degree: BS in Computer Science
+    GPA: 3.36
+    

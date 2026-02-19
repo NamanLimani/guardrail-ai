@@ -1,0 +1,14 @@
+
+    CONFIDENTIAL MEDICAL RECORD
+    --------------------------------
+    Patient Name: Jennifer Nicholson
+    Date of Birth: 1964-11-18
+    Social Security Number: 261-64-6584
+    
+    Diagnosis:
+    Patient complains of air pain. 
+    Doctor recommends Figure compare ever experience firm do..
+    
+    Insurance Provider: Payne-Solis
+    Policy Number: 143a4c06-553b-40f8-9ae0-c819105ebc18
+    

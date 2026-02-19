@@ -1,0 +1,17 @@
+
+    INVOICE #14402
+    Date: 2026-01-21
+    
+    BILL TO:
+    Brittney Kim
+    49828 Daniel Gardens Suite 802
+Jacobsonview, CT 96632
+    SSN (Tax ID): 789-35-4749
+    
+    PAYMENT DETAILS:
+    Credit Card: 30541796630900
+    Expires: 09/30
+    IBAN: GB38WSBK03258585594391
+    
+    Total Amount: $1605.48
+    

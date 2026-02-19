@@ -1,0 +1,17 @@
+
+    INVOICE #456227
+    Date: 2026-02-09
+    
+    BILL TO:
+    Wanda Jackson
+    8053 Morgan Row
+East Ambermouth, SC 88662
+    SSN (Tax ID): 162-66-8221
+    
+    PAYMENT DETAILS:
+    Credit Card: 3566916400691959
+    Expires: 07/34
+    IBAN: GB35IGQK32235726078873
+    
+    Total Amount: $613.36
+    

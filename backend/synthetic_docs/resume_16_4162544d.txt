@@ -1,0 +1,19 @@
+
+    RESUME
+    --------------------------------
+    Name: Robert Peterson
+    Email: dsalas@example.org
+    Phone: 001-634-973-8033x079
+    Address: 921 Karen Track, Flynnmouth, PA 64409
+    
+    EXPERIENCE
+    --------------------------------
+    Surveyor, planning and development at Kane-Duncan
+    Dates: 2023-08-11 - Present
+    
+    EDUCATION
+    --------------------------------
+    University: Wright-Owens University
+    Degree: BS in Computer Science
+    GPA: 3.89
+    

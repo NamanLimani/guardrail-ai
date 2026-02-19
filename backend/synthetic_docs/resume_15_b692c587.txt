@@ -1,0 +1,19 @@
+
+    RESUME
+    --------------------------------
+    Name: William Wells
+    Email: kimberlybryant@example.net
+    Phone: +1-253-762-5787x74045
+    Address: 4864 Alvarado Mission Suite 026, Markville, NY 30780
+    
+    EXPERIENCE
+    --------------------------------
+    Exhibition designer at Mercer, Wilson and Hamilton
+    Dates: 2024-01-16 - Present
+    
+    EDUCATION
+    --------------------------------
+    University: Gonzalez-Mendez University
+    Degree: BS in Computer Science
+    GPA: 3.19
+    

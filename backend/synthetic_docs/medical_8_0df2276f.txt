@@ -1,0 +1,14 @@
+
+    CONFIDENTIAL MEDICAL RECORD
+    --------------------------------
+    Patient Name: James Harding
+    Date of Birth: 2002-06-04
+    Social Security Number: 453-64-8187
+    
+    Diagnosis:
+    Patient complains of see pain. 
+    Doctor recommends Film quite region reality..
+    
+    Insurance Provider: Tyler, Trujillo and Johnson
+    Policy Number: a2edf6ef-6ddc-4df8-8a6a-532a98401a7d
+    

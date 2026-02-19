@@ -1,0 +1,17 @@
+
+    INVOICE #746169
+    Date: 2026-01-14
+    
+    BILL TO:
+    Leslie Kelley
+    9225 Alicia Port
+West Candace, KY 24369
+    SSN (Tax ID): 526-69-7854
+    
+    PAYMENT DETAILS:
+    Credit Card: 2287162959855345
+    Expires: 04/29
+    IBAN: GB69ZMQX19287620476502
+    
+    Total Amount: $3127.05
+    

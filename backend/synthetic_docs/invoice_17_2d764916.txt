@@ -1,0 +1,17 @@
+
+    INVOICE #787225
+    Date: 2026-01-09
+    
+    BILL TO:
+    Monica Green
+    65974 Brown Garden Apt. 250
+Greenfort, WY 45909
+    SSN (Tax ID): 304-11-9743
+    
+    PAYMENT DETAILS:
+    Credit Card: 676160890536
+    Expires: 06/33
+    IBAN: GB03YUKB24989049081694
+    
+    Total Amount: $2138.03
+    

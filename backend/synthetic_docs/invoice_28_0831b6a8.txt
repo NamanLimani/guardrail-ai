@@ -1,0 +1,17 @@
+
+    INVOICE #482628
+    Date: 2026-01-16
+    
+    BILL TO:
+    Timothy Rogers
+    894 Bailey Terrace
+Lake Charlesstad, AL 47253
+    SSN (Tax ID): 651-86-2132
+    
+    PAYMENT DETAILS:
+    Credit Card: 3570266903728336
+    Expires: 08/27
+    IBAN: GB16QMCZ75557627444881
+    
+    Total Amount: $4931.99
+    

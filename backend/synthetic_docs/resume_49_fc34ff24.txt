@@ -1,0 +1,19 @@
+
+    RESUME
+    --------------------------------
+    Name: Mr. Joshua Barnes
+    Email: jjones@example.com
+    Phone: (318)953-1197x7772
+    Address: 6428 Hughes Ports Apt. 842, Crossburgh, VI 92812
+    
+    EXPERIENCE
+    --------------------------------
+    Podiatrist at James Ltd
+    Dates: 2021-09-15 - Present
+    
+    EDUCATION
+    --------------------------------
+    University: Murray-Norris University
+    Degree: BS in Computer Science
+    GPA: 2.97
+    

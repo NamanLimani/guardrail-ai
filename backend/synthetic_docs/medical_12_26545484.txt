@@ -1,0 +1,14 @@
+
+    CONFIDENTIAL MEDICAL RECORD
+    --------------------------------
+    Patient Name: Joel Patterson
+    Date of Birth: 2009-01-16
+    Social Security Number: 025-80-7546
+    
+    Diagnosis:
+    Patient complains of certain pain. 
+    Doctor recommends Different everything all research give parent measure..
+    
+    Insurance Provider: Beltran-Rodriguez
+    Policy Number: 85558089-7047-4060-9559-05c33401c095
+    

@@ -1,0 +1,17 @@
+
+    INVOICE #964152
+    Date: 2026-01-23
+    
+    BILL TO:
+    Thomas Huber
+    78180 Michael Road
+West Dylan, ME 85295
+    SSN (Tax ID): 664-56-4307
+    
+    PAYMENT DETAILS:
+    Credit Card: 30539818177173
+    Expires: 02/34
+    IBAN: GB70GPOF61932598382011
+    
+    Total Amount: $4343.48
+    

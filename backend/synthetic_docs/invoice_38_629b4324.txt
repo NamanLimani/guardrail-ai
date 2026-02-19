@@ -1,0 +1,17 @@
+
+    INVOICE #963845
+    Date: 2026-01-02
+    
+    BILL TO:
+    Sandra Sanchez
+    81891 Parker Court
+Lake Ericmouth, WV 69061
+    SSN (Tax ID): 352-84-9390
+    
+    PAYMENT DETAILS:
+    Credit Card: 343168712658179
+    Expires: 03/28
+    IBAN: GB06BJUG97710544183942
+    
+    Total Amount: $3179.70
+    

@@ -1,0 +1,14 @@
+
+    CONFIDENTIAL MEDICAL RECORD
+    --------------------------------
+    Patient Name: Paul Lee
+    Date of Birth: 1971-09-12
+    Social Security Number: 443-18-8007
+    
+    Diagnosis:
+    Patient complains of issue pain. 
+    Doctor recommends Myself between ability who..
+    
+    Insurance Provider: Bryan, Vance and Fuller
+    Policy Number: b70c1949-f871-4761-806d-146dfeace13c
+    

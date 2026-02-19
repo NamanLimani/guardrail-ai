@@ -1,0 +1,17 @@
+
+    INVOICE #835208
+    Date: 2026-01-29
+    
+    BILL TO:
+    John Stanton
+    7507 Garrison Bypass Suite 331
+East Stephen, VI 82872
+    SSN (Tax ID): 637-86-6282
+    
+    PAYMENT DETAILS:
+    Credit Card: 6501893447548248
+    Expires: 06/27
+    IBAN: GB84HJNY02218012632097
+    
+    Total Amount: $4819.89
+    

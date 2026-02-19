@@ -1,0 +1,19 @@
+
+    RESUME
+    --------------------------------
+    Name: Jessica Nolan
+    Email: shannonortiz@example.net
+    Phone: 325-390-3845
+    Address: 1432 Alvarado Springs Apt. 873, North Stephenmouth, IA 01541
+    
+    EXPERIENCE
+    --------------------------------
+    Teacher, special educational needs at Grant, Howe and Pope
+    Dates: 2021-06-20 - Present
+    
+    EDUCATION
+    --------------------------------
+    University: Middleton, Garcia and Harris University
+    Degree: BS in Computer Science
+    GPA: 3.58
+    

@@ -1,0 +1,17 @@
+
+    INVOICE #315269
+    Date: 2026-01-22
+    
+    BILL TO:
+    Christopher Valencia
+    309 Rachel Brooks
+Huertaside, AL 09903
+    SSN (Tax ID): 603-45-0874
+    
+    PAYMENT DETAILS:
+    Credit Card: 213136890816130
+    Expires: 06/32
+    IBAN: GB47KADV26876127796791
+    
+    Total Amount: $4400.85
+    

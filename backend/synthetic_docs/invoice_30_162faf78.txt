@@ -1,0 +1,17 @@
+
+    INVOICE #214273
+    Date: 2026-01-13
+    
+    BILL TO:
+    Debra Garcia
+    USS Brown
+FPO AA 77555
+    SSN (Tax ID): 606-18-1496
+    
+    PAYMENT DETAILS:
+    Credit Card: 676366354337
+    Expires: 01/36
+    IBAN: GB02ZHCJ20881878226735
+    
+    Total Amount: $1617.40
+    

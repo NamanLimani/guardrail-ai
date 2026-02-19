@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: {{ .Values.backend.replicas }}
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: "{{ .Values.backend.image }}:{{ .Values.backend.tag }}"
+        imagePullPolicy: Never
+        ports:
+        - containerPort: {{ .Values.backend.port }}
+        env:
+        - name: DATABASE_URL
+          value: {{ .Values.backend.env.databaseUrl }}
+        - name: GROQ_API_KEY
+          value: {{ .Values.backend.env.groqApiKey }}
+        - name: GOOGLE_CLIENT_ID
+          value: {{ .Values.backend.env.googleClientId }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  selector:
+    app: backend
+  ports:
+  - protocol: TCP
+    port: {{ .Values.backend.port }}
+    targetPort: {{ .Values.backend.port }}

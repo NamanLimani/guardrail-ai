@@ -1,0 +1,19 @@
+
+    RESUME
+    --------------------------------
+    Name: Nathaniel Larson
+    Email: shawn80@example.org
+    Phone: 001-675-242-9203x50578
+    Address: 081 Martin Isle, West Elizabeth, WA 12592
+    
+    EXPERIENCE
+    --------------------------------
+    Community education officer at Marks Group
+    Dates: 2024-08-27 - Present
+    
+    EDUCATION
+    --------------------------------
+    University: Acosta-Powell University
+    Degree: BS in Computer Science
+    GPA: 3.72
+    

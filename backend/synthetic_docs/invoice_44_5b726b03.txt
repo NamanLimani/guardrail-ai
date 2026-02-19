@@ -1,0 +1,17 @@
+
+    INVOICE #958310
+    Date: 2026-01-28
+    
+    BILL TO:
+    Kayla Rice
+    10782 Ricardo Wells
+Karenberg, CO 64242
+    SSN (Tax ID): 294-22-1586
+    
+    PAYMENT DETAILS:
+    Credit Card: 2246069082002341
+    Expires: 05/31
+    IBAN: GB69CMPG09914727351356
+    
+    Total Amount: $538.49
+    

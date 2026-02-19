@@ -1,0 +1,19 @@
+
+    RESUME
+    --------------------------------
+    Name: Michelle Perry
+    Email: imcmillan@example.net
+    Phone: (964)573-4962
+    Address: 53484 Campbell Turnpike, Richardton, OH 75485
+    
+    EXPERIENCE
+    --------------------------------
+    English as a second language teacher at Simpson and Sons
+    Dates: 2025-08-18 - Present
+    
+    EDUCATION
+    --------------------------------
+    University: Ford, Johnson and Bryant University
+    Degree: BS in Computer Science
+    GPA: 3.86
+    

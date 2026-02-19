@@ -1,0 +1,17 @@
+
+    INVOICE #103375
+    Date: 2026-02-09
+    
+    BILL TO:
+    Tyler Taylor
+    23217 Elizabeth Causeway
+New Daisychester, NY 35735
+    SSN (Tax ID): 343-16-6682
+    
+    PAYMENT DETAILS:
+    Credit Card: 180024740246584
+    Expires: 01/32
+    IBAN: GB02LYKG76625232322391
+    
+    Total Amount: $4716.81
+    

@@ -1,0 +1,19 @@
+
+    RESUME
+    --------------------------------
+    Name: Victoria Johnson
+    Email: jenniferpowers@example.org
+    Phone: 001-641-236-9306x949
+    Address: 69669 Patel Spurs Apt. 232, Susanburgh, PW 19503
+    
+    EXPERIENCE
+    --------------------------------
+    Adult nurse at Pierce Group
+    Dates: 2024-02-14 - Present
+    
+    EDUCATION
+    --------------------------------
+    University: Rice, Daniels and Le University
+    Degree: BS in Computer Science
+    GPA: 2.56
+    

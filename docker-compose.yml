@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  # 1. The Database
+  db:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=guardrail
+    ports:
+      - "5432:5432"
+
+  # 2. The Python Backend
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      # Notice we use "db" as the hostname instead of "localhost"
+      - DATABASE_URL=YOUR_KEY_HERE
+      # Needed for the AI model download to work inside Docker
+      - HF_HOME=/tmp
+      - GROQ_API_KEY=YOUR_GROQ_API_KEY_HERE
+    depends_on:
+      - db
+    volumes:
+      # Map the uploads folder so files persist even if you restart container
+      - ./backend/uploads:/app/uploads
+
+  # 3. The Next.js Frontend
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

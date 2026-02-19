@@ -1,0 +1,19 @@
+
+    RESUME
+    --------------------------------
+    Name: Anthony Warren
+    Email: claytonanthony@example.com
+    Phone: +1-847-354-9463
+    Address: 021 Benjamin Squares, Bennettshire, KY 93614
+    
+    EXPERIENCE
+    --------------------------------
+    Agricultural consultant at Pearson-Brown
+    Dates: 2023-08-11 - Present
+    
+    EDUCATION
+    --------------------------------
+    University: Morgan-Miranda University
+    Degree: BS in Computer Science
+    GPA: 3.04
+    

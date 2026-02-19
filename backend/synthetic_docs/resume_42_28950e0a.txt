@@ -1,0 +1,19 @@
+
+    RESUME
+    --------------------------------
+    Name: Daniel Bullock
+    Email: thomasstacey@example.org
+    Phone: 2785545138
+    Address: PSC 8405, Box 2100, APO AP 95309
+    
+    EXPERIENCE
+    --------------------------------
+    Warehouse manager at Hutchinson Ltd
+    Dates: 2024-11-16 - Present
+    
+    EDUCATION
+    --------------------------------
+    University: Porter-Carter University
+    Degree: BS in Computer Science
+    GPA: 3.13
+    

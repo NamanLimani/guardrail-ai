@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 1  # We start with 1 copy. Later we can scale to 3!
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: guardrail-backend:latest
+        imagePullPolicy: Never  # <--- CRITICAL: Use the local image!
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DATABASE_URL
+          value: "YOUR_KEY_HERE"
+        - name: GROQ_API_KEY
+          value: "YOUR_GROQ_API_KEY_HERE"  # <--- PASTE YOUR REAL KEY HERE
+        # We will add HuggingFace token later if needed
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend  # The Frontend will talk to this URL
+spec:
+  selector:
+    app: backend
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000

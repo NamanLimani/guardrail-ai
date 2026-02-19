@@ -1,0 +1,19 @@
+
+    RESUME
+    --------------------------------
+    Name: Jeffrey Smith
+    Email: thomasgallegos@example.com
+    Phone: +1-286-617-8414x262
+    Address: 68192 Mark Lights, South Sheriville, VT 32484
+    
+    EXPERIENCE
+    --------------------------------
+    Publishing copy at Washington-Lee
+    Dates: 2023-07-11 - Present
+    
+    EDUCATION
+    --------------------------------
+    University: Bishop Inc University
+    Degree: BS in Computer Science
+    GPA: 2.82
+    

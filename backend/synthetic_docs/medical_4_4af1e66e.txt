@@ -1,0 +1,14 @@
+
+    CONFIDENTIAL MEDICAL RECORD
+    --------------------------------
+    Patient Name: Patrick Johnson
+    Date of Birth: 1992-09-16
+    Social Security Number: 889-67-3416
+    
+    Diagnosis:
+    Patient complains of feeling pain. 
+    Doctor recommends Book Republican night enough identify star..
+    
+    Insurance Provider: Bell, Davis and Calderon
+    Policy Number: 9908317c-27d4-4dac-9895-0522542df314
+    

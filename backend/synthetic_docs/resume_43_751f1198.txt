@@ -1,0 +1,19 @@
+
+    RESUME
+    --------------------------------
+    Name: Juan Smith
+    Email: brownantonio@example.org
+    Phone: 226.346.0303
+    Address: 757 Jennifer Ports Apt. 677, Lake Tristanview, SD 92870
+    
+    EXPERIENCE
+    --------------------------------
+    Local government officer at Bradley, Collins and Blake
+    Dates: 2021-04-20 - Present
+    
+    EDUCATION
+    --------------------------------
+    University: Bailey, Jones and Page University
+    Degree: BS in Computer Science
+    GPA: 3.71
+    

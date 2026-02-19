@@ -1,0 +1,14 @@
+
+    CONFIDENTIAL MEDICAL RECORD
+    --------------------------------
+    Patient Name: Amy Mitchell
+    Date of Birth: 1932-10-21
+    Social Security Number: 154-96-4121
+    
+    Diagnosis:
+    Patient complains of news pain. 
+    Doctor recommends Necessary by between or city hospital..
+    
+    Insurance Provider: Larson-Burns
+    Policy Number: 04b861c5-8daf-41f5-8c96-8e039c6901cb
+    

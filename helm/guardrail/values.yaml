@@ -1,0 +1,31 @@
+# Global Settings
+global:
+  environment: local
+
+# Database Configuration
+postgres:
+  image: postgres:15
+  username: user
+  password: password
+  dbName: guardrail
+  storage: 1Gi
+
+# Backend Configuration
+backend:
+  image: guardrail-backend
+  tag: latest
+  replicas: 1
+  port: 8000
+  env:
+    # Use the Service Name (postgres-service) as the host
+    databaseUrl: "YOUR_KEY_HERE"
+    groqApiKey: "YOUR_GROQ_API_KEY_HERE" # <--- PASTE YOUR KEY!
+    googleClientId: "846738362201-fuhrirth4p2u1vfatl1bgc11mq15935a.apps.googleusercontent.com"
+
+# Frontend Configuration
+frontend:
+  image: guardrail-frontend
+  tag: latest
+  replicas: 1
+  port: 3000
+  apiUrl: "http://localhost:8000" # For local testing

@@ -1,0 +1,14 @@
+
+    CONFIDENTIAL MEDICAL RECORD
+    --------------------------------
+    Patient Name: Brenda Fritz
+    Date of Birth: 1990-09-04
+    Social Security Number: 462-63-2697
+    
+    Diagnosis:
+    Patient complains of white pain. 
+    Doctor recommends Subject teach area city on large my..
+    
+    Insurance Provider: Lewis-Barnes
+    Policy Number: acc9ae39-dbb2-422a-9999-e28f3302a6dd
+    

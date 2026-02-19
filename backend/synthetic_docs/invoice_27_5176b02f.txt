@@ -1,0 +1,17 @@
+
+    INVOICE #107852
+    Date: 2026-02-07
+    
+    BILL TO:
+    James Hatfield
+    15592 David Divide Apt. 120
+North Johnborough, PW 81677
+    SSN (Tax ID): 773-34-8470
+    
+    PAYMENT DETAILS:
+    Credit Card: 4705827209524756
+    Expires: 11/30
+    IBAN: GB76AZCV74252332439323
+    
+    Total Amount: $2218.35
+    

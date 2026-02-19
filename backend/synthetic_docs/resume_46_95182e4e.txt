@@ -1,0 +1,19 @@
+
+    RESUME
+    --------------------------------
+    Name: Jerry Moreno
+    Email: smithjessica@example.net
+    Phone: 858-370-8356x206
+    Address: 5396 William Island Suite 254, Olivershire, RI 62558
+    
+    EXPERIENCE
+    --------------------------------
+    Theme park manager at Clark, Skinner and Young
+    Dates: 2025-06-03 - Present
+    
+    EDUCATION
+    --------------------------------
+    University: Lee-White University
+    Degree: BS in Computer Science
+    GPA: 3.22
+    

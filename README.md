@@ -4,6 +4,17 @@
 
 GuardRail AI is a full-stack, cloud-native application designed to securely process, redact, and query sensitive documents. It leverages advanced Natural Language Processing (NER) to automatically detect and mask Personally Identifiable Information (PII) before using Retrieval-Augmented Generation (RAG) to allow users to semantically chat with their data.
 
+## 🌐 Live Demo
+* **Frontend Web App:** [https://guardrail-ai.vercel.app](https://guardrail-ai.vercel.app)
+* **Backend API Documentation:** [https://guardrail-ai-1.onrender.com/docs](https://guardrail-ai-1.onrender.com/docs)
+
+## 🔑 Prerequisites for Local Development
+If you want to run this architecture locally, you will need to generate free API keys from the following providers:
+1. **Hugging Face Token** (For Embeddings & NER): [Get Token Here](https://huggingface.co/settings/tokens)
+2. **Groq API Key** (For Llama-3 & Whisper): [Get Key Here](https://console.groq.com/keys)
+3. **Neon Database** (For Serverless Postgres): [Create Cluster Here](https://console.neon.tech)
+4. **Google Cloud Console** (For OAuth 2.0 Client ID): [Setup OAuth Here](https://console.cloud.google.com/)
+
 ## 🚀 Key Features
 
 * **Zero-Trust Authentication:** Secure JWT-based sessions with seamless Google OAuth 2.0 integration.

@@ -18,3 +18,20 @@ api.interceptors.request.use((config) => {
   }
   return config;
 });
+
+// frontend/utils/api.ts
+
+export const deleteDocument = async (token: string, docId: string) => {
+  const res = await fetch(`${API_URL}/documents/${docId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  
+  if (!res.ok) {
+    throw new Error("Failed to delete document");
+  }
+  
+  return res.json();
+};
